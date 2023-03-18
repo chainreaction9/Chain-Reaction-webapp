@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <meta name="author" content="Shubhamoy <https://github.com/chainreaction9>">
+        <title>Login Portal</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='content/favicon.ico') }}">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='content/login-page-style.css') }}" />
+    </head>
+    <body>
+        <div class="custom_body fancy-scrollbar">
+            <div class="body-container">
+                <h1 align="center" id="welcome-header">
+                    Welcome to Chain Reaction Server
+                </h1>
+                <div class="lg-container">
+                    <header id="login-form-header">
+                        <p align="center">
+                            Please login to play with online players!
+                        </p>
+                    </header>
+                    <form action="./verify-credentials" id="lg-form" name="lg-form" method="post">
+                        <input type="hidden" style="text-align:center;" name="is_ajax" id="is_ajax" value="" />
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" style="text-align:center;" class="form-control" name="username" id="username" required placeholder="Username" value="{{ username }}" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" style="text-align:center;" class="form-control" name="password" id="password" required placeholder="Password" />
+                        </div>
+                        <div style="margin: auto; margin: 10px auto; display: table">
+                            <button type="submit" style="padding-top: 5px; padding-bottom: 5px;" id="login" class="myBtn">Submit</button>
+                        </div>
+                    </form>
+                    {% with errors = get_flashed_messages(category_filter=["error"]) %}
+                    {% if errors %}
+                    <div style="width: 100%; padding: 0; margin: 10px auto; text-align: center; background-color: darkred; font-size: 0.55em; line-height: 1.15em;">
+                        {%- for msg in errors %}
+                        <p style="color: white; font-weight: bold; padding: 5px;">Error: {{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    {% with messages = get_flashed_messages(category_filter=["message"]) %}
+                    {% if messages %}
+                    <div style="width: 100%; padding: 0; margin: 10px auto; text-align: center; background-color: lightgray; font-size: 0.55em; line-height: 1.15em;">
+                        {%- for msg in messages %}
+                        <p style="font-weight: bold; padding: 5px;">Alert: {{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    {% with information = get_flashed_messages(category_filter=["info"]) %}
+                    {% if information %}
+                    <div style="width: 100%; padding: 0; margin: 10px auto; text-align: center; background-color: darkgreen; font-size: 0.55em; line-height: 1.15em;">
+                        {%- for info in information %}
+                        <p style="color: white; font-weight: bold; padding: 5px;">Info: {{ info }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    <div id="forgot_pass">
+                        <p align="center">
+                            Don't have an account yet? <a href="/chainreaction-online/register">Sign up</a> for free!
+                        </p>
+                        <p align="center">
+                            Forgot your password? Click <a href="/chainreaction-online/reset">here</a>.
+                        </p>
+                        <div style="display: inline-flex; flex-direction: row; align-items: center; width: 100%;">
+                            <a style="margin: 10px auto;" href="/">Home page</a>
+                            <a style="margin: 10px auto;" href="/chainreaction-online/activate">Activate account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="footer-text">
+                Developer:&nbsp;<a href="https://github.com/chainreaction9">Shubhamoy&nbsp;&lt;github.com/chainreaction9&gt;</a>
+            </div>
+        </div>
+    </body>
+</html>

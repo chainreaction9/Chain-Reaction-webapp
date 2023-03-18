@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="author" content="Shubhamoy <https://github.com/chainreaction9>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='content/favicon.ico') }}">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content/loading.css') }}" />
+        <title>Account not activated.</title>
+    </head>
+    <body>
+        <div class="custom_body fancy-scrollbar">
+            <div class="animate" style='margin: 10px; padding: 20px; background: rgba(248,248,248,.9); border-radius: 4px; max-width: 600px; margin: 50px auto;'>
+                <div style='display: flex; width: 100%; align-items: center;'>
+                    <h2 style="margin: auto; font-family: Algerian; font-weight: normal;">
+                        Welcome {{ username }}!
+                    </h2>
+                    <input type="hidden" id="_token" value="{{ token }}" />
+                </div>
+                <div>
+                    <h3 style="color: red; font-size: 17px; line-height: 22px; font-weight: bold; font-family: 'Raleway'">
+                        You must activate your account to avail this service. Visit this <a href='/chainreaction-online/activate?username={{ username }}'>link</a> for account activation.
+                    </h3>
+                    <p>The activation key was sent to your email <span style="font-weight: bold;">&lt;{{ email }}&gt;</span> while registration. The email can take few minutes before arriving. If you can not find it, please check the spam folder of your email. Otherwise, you may request a new key below.</p>
+                </div>
+                <div style='display: flex; width: 100%; align-items: center; flex-direction: row;'>
+                    <button class="myBtn" style='padding: 5px 10px; margin: auto;' id="logoutBtn">Logout</button>
+                    <button class="myBtn" style='padding: 5px 10px; margin: auto;' id="_resendKey" data-action="{{ resend_activation_page }}">Resend activation key</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="myModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="loading_modal"></div>
+        <div id="footer">
+            <div id="footer-text">
+                Developer:&nbsp;<a href="https://github.com/chainreaction9">Shubhamoy&nbsp;&lt;github.com/chainreaction9&gt;</a>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js" data-main="{{url_for('static', filename='scripts/js/resend-activation')}}"></script>
+    </body>
+</html>

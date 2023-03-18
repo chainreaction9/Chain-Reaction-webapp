@@ -1,0 +1,186 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-image: url("chainreaction.jpg");
+}
+div.custom_body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: calc(100% - 20px);
+    height: -moz-calc(100% - 20px);
+    height: -webkit-calc(100% - 20px);
+    font-size: 15px;
+    line-height: 22px;
+    overflow: auto;
+}
+.custom-form-header {
+    font-size: 17px !important;
+    font-weight: bold !important;
+    font-family: Algerian !important;
+    color: black !important;
+    background-color: rgba(200, 220, 250, 0.7) !important;
+    background-blend-mode: soft-light !important;
+    background-image: url("favicon.ico") !important;
+    background-size: cover !important;
+    background-position: 50% 50% !important;
+    background-attachment: fixed !important;
+}
+button.myBtn{
+    position: relative;
+    background-color: #428bca;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 6px 12px;
+    box-sizing:border-box;
+    border-radius: 3px;
+    font-family: sans-serif;
+    font-size: 10pt;
+}
+button.myBtn::after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.7s
+}
+button.myBtn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+button.myBtn:hover{
+    transition: 0s;
+    background-color: #4873ad;
+}
+button.myBtn[disabled]{
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: .65;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+#footer {
+    background-color: transparent;
+    height: 20px;
+    width: 100%;
+    min-width: 800px;
+    padding: 0px;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-flex-align: end;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    justify-content: flex-end;
+    -ms-flex-pack: end;
+    -webkit-flex-pack: end;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    box-shadow: rgb(0 0 0) -5px -5px 18px 7px;
+}
+#footer-text {
+	background-color: #0f2ae1;
+	padding: 0px 5px 0px 5px;
+	color: rgba(255,255,255,0.7);
+	text-align: right;
+    font-family: Raleway;
+	font-weight: bold;
+	font-size: 9pt;
+	height: 100%;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	align-items: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	flex-direction: row;
+	-ms-flex-direction: row;
+	justify-content: center;
+	-ms-flex-pack: center;
+	-webkit-flex-pack: center;
+	position: sticky;
+	right: 0;
+    margin-top: auto;
+}
+#footer-text a{
+	color: rgba(255,255,255,0.7);
+	text-decoration: none;
+}
+@media only screen and (max-device-width: 600px) {
+    div.footer {
+        min-width: 1100px !important;
+    }
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+#loading_modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 0, 0, 0, .7 ) 
+                url('ajax-loader-register.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading #loading_modal {
+    display: block;
+}

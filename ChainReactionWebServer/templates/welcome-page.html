@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Shubhamoy <https://github.com/chainreaction9>">
+    <title>Chain Reaction</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='content/favicon.ico') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='content/welcome-page-style.css')}}" type="text/css" media="all">
+</head>
+<body>
+    <div class="content-area">
+        <div id="main" class="site-main" role="main">
+            <div id="website-heading"><span>Welcome!</span></div>
+            <div class="fancy-scrollbar-y entry-wrapper">
+                <div class="wrapper">
+                    <div class="general-info">
+                        <p>
+                            Play &ldquo;Chain Reaction&rdquo; (android game) on browsers too!
+                            <br />
+                            It is a turn-based multi-player board game where the goal is to eliminate other players from the board.
+                            <br />
+                            You can find out more details about it <a href="https://brilliant.org/wiki/chain-reaction-game/">here</a>.
+                        </p>
+                    </div>
+                    <div id="fancy_link" class="fancy-scrollbar-x">
+                        <a href="/chainreaction-online/register">Sign Up!</a>
+                        <a href="/chainreaction-online/login">Play Online</a>
+                        <a href="/chainreaction-offline">Play Locally</a>
+                    </div>
+                    <div id="rule-class">
+                        <p>Basic Rules</p>
+                        <ul>
+                            <li>The players have a unique color and take turn in placing orbs of their color at either an empty cell or a cell already occupied by them.
+                            <li>
+                                Each cell has a <span style="color: blue;">maximum capacity</span>
+                                : A cell can contain at most one less than the number of its neighbouring cells. The cells that are not on an
+                                edge or a corner of the board can contain most number of orbs.
+                            </li>
+                            <li>
+                                A fully occupied cell is an <span style="color: red;">explosive</span>: adding one more orb
+                                of the same color will cause it to explode and each neighbouring cell will receive one more orb
+                                of the same color after the explosion.
+                                <br>
+                                So if you cause an explosion, all the neighbouring cells will become yours, even if they were already occupied by other players!
+                                <br>
+                                If a neighbouring cell contained other player's explosive, your explosion will cause them to explode too and create a
+                                <span style="color: red;">chain reaction</span>!
+                            </li>
+                            <li>You win by eliminating all other players from the board.</li>
+                        </ul>
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <div id="footer-text">
+                    Developer:&nbsp;<a href="https://github.com/chainreaction9">Shubhamoy&nbsp;&lt;github.com/chainreaction9&gt;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>>Welcome to Chain Reaction Web Server!</title>
+    </head>
+    <body>
+        <div style="font-family: 'Raleway'; font-size: 16px; line-height: 18px;">
+            <p>Hi there!</p>
+            Thank you for registering with <a target='_blank' href={{ server_page }}>Chain Reaction Server</a>. Once activated, you can login to your account and
+            play <span style="color: darkgreen; font-weight: bold;">Chain Reaction</span> with other online players!
+            <div style="padding: 0px 20px;">
+                <p style="padding: 0; font-weight: bold;">Your username:&nbsp; <span style="color: darkblue;">{{ user_name }}</span></p>
+                <p style="padding: 0; font-weight: bold;">Activation link:&nbsp; <a href="{{ activation_link }}">link</a></p>
+            </div>
+            <div>
+                Please visit the above link to activate your account. If the link does not work, go to the <a href="{{ activation_page }}" target="_blank">activation page</a> and enter the following activation key:
+                <p style="text-align: center; font-weight: bold; color: red;">{{ activation_key }}</p>
+            </div>
+            <div>
+                Cheers,
+                <br />
+                Chain Reaction Server
+            </div>
+            <div style="font-size: 10pt;">
+                <br />
+                <i>*** This is a system generated email. Please do not reply to this message. ***</i>
+            </div>
+        </div>
+    </body>
+</html>

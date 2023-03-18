@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="author" content="Shubhamoy <https://github.com/chainreaction9>">
+    <title>Chain Reaction</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='content/favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content/offline-game-page-style.css') }}">
+
+</head>
+
+<body>
+    <div id="horizontal-menubar" class="fancy-scrollbar-x">
+        <button class="myBtn" id="htmlMenuBtn" style="width:auto; height:100%;" disabled>Menu&nbsp;&#9660;</button>
+        <div id="gamePanelHorizontal">
+            <label id="turnLabelHorizontal" for="turn" class="insideCustomLabel">Turn:&nbsp;</label>
+            <label id="playerLabelHorizontal" for="turn" class="insideCustomLabel"></label>
+        </div>
+        <button class="myBtn" id="undoBtnHorizontal" style="width: auto; height:100%;">Undo</button>
+    </div>
+    <div id="blockView"></div>
+    <div id="menubar" data-state="1">
+        <div id="outsideGame" class="container">
+            <div style="position: sticky; top: 0px; align-items: center; width: 100%; max-width: 270px; min-height: 70px; display: inherit; background: none;">
+                <a class="btn" id="startBtn">
+                    Start
+                </a>
+            </div>
+            <div style="position: relative; top: 0px; align-items: center; width: 100%; max-width: 270px; min-height: 70px; display: inherit; background: none;">
+                <a class="btn" href="/">
+                    Home
+                </a>
+            </div>
+            <div class="container fancy-scrollbar-y">
+                <ul style="max-width: 270px;">
+                    <li class="custom">
+                        <label for="board_size" class="customLabel">BOARD:&nbsp;</label>
+                        <select name="board_size" id="size_y" class="select-css">
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                        <label class="customLabel">&nbsp;x&nbsp;</label>
+                        <select name="board_size" id="size_x" class="select-css">
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                    </li>
+                    <li class="custom">
+                        <label for="player_number" class="customLabel">Players:&nbsp;</label>
+                        <select name="player_number" id="numPlayer" class="select-css">
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                    </li>
+                    <li id='player-1' class="custom">
+                        <label for="color1" class="customLabel">Player 1:&nbsp;</label>
+                        <select name="color1" id="_ColorChoiceForPlayer_1" class="select-css"></select>
+                    </li>
+                    <li id='player-2' class="custom">
+                        <label for="color2" class="customLabel">Player 2:&nbsp;</label>
+                        <select name="color2" id="_ColorChoiceForPlayer_2" class="select-css"></select>
+                    </li>
+                    <li id='player-3' class="custom">
+                        <label for="color3" class="customLabel">Player 3:&nbsp;</label>
+                        <select name="color3" id="_ColorChoiceForPlayer_3" class="select-css"></select>
+                    </li>
+                    <li id='player-4' class="custom">
+                        <label for="color4" class="customLabel">Player 4:&nbsp;</label>
+                        <select name="color4" id="_ColorChoiceForPlayer_4" class="select-css"></select>
+                    </li>
+                    <li id='player-5' class="custom">
+                        <label for="color5" class="customLabel">Player 5:&nbsp;</label>
+                        <select name="color5" id="_ColorChoiceForPlayer_5" class="select-css"></select>
+                    </li>
+                    <li id='player-6' class="custom">
+                        <label for="color6" class="customLabel">Player 6:&nbsp;</label>
+                        <select name="color6" id="_ColorChoiceForPlayer_6" class="select-css"></select>
+                    </li>
+                    <li id='player-7' class="custom">
+                        <label for="color7" class="customLabel">Player 7:&nbsp;</label>
+                        <select name="color7" id="_ColorChoiceForPlayer_7" class="select-css"></select>
+                    </li>
+                    <li id='player-8' class="custom">
+                        <label for="color8" class="customLabel">Player 8:&nbsp;</label>
+                        <select name="color8" id="_ColorChoiceForPlayer_8" class="select-css"></select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="insideGame" class="container">
+            <div class="container fancy-scrollbar-y" style="justify-content: flex-start; position: sticky; top: 0px; background: none;">
+                <ul style="max-width: 270px;">
+                    <li class="insideCustom" style="display: none;">
+                        <p id="FrameNum"></p>
+                    </li>
+                    <li class="insideCustom">
+                        <label id="boardSizeLabel" for="board_size" class="insideCustomLabel"></label>
+                    </li>
+                    <li class="insideCustom">
+                        <label id="numPlayerLabel" for="player_number" class="insideCustomLabel"></label>
+                    </li>
+                    <li id="turnInfo" class="insideCustom">
+                        <label id="turnLabel" for="turn" class="insideCustomLabel">Turn:&nbsp;</label>
+                        <label id="playerLabel" for="turn" class="insideCustomLabel"></label>
+                    </li>
+                </ul>
+            </div>
+            <div class="container fancy-scrollbar-y">
+                <ul style="max-width: 270px;">
+                    <li class="btn">
+                        <button class="myBtn" id="colSeq">Move Order</button>
+                    </li>
+                    <li id="undoBtnContainer" class="btn">
+                        <button class="myBtn" id="undoBtn">Undo</button>
+                    </li>
+                    <li class="btn">
+                        <button class="myBtn" id="newGameBtn">New Game</button>
+                    </li>
+                    <li class="btn">
+                        <button class="myBtn" id="mainMenuBtn">Quit Game</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="canvasParent">
+        <canvas id="canvasObj"></canvas>
+        <audio id="gameAudio" src="{{url_for('static', filename='content/assets/audio.wav')}}"></audio>
+    </div>
+    <div id="canvasBlocker">
+        <div id="progressBarContainer">
+            <div id="progressBar"></div>
+            <div id="messageFromGameEngine">Loading resources. Please wait ...</div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js" data-main="{{url_for('static', filename='scripts/js/offline-config')}}"></script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <title>Chain Reaction Account Recovery</title>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="author" content="Shubhamoy <https://github.com/chainreaction9>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='content/favicon.ico') }}">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='content/loading.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='content/sky-forms.css') }}" />
+        
+    </head>
+    <body>
+        <div class="custom_body fancy-scrollbar">
+            <div class="animate" style="margin: 30px auto; max-width: 400px;">
+                <form action="/chainreaction-online/reset" class="sky-form" id="password-reset-form" method="POST">
+                    <header class="custom-form-header">Please provide the following details to reset your password.</header>
+                    <fieldset>
+                        <section>
+                            <label class="input">
+                                <input type="text" placeholder="Username" required id="_user" />
+                                <b class="tooltip tooltip-bottom-right">Only letters, numbers and period, atleast 5 and at max 15 characters long.</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <input type="text" placeholder="Email address" id="_email" required />
+                                <b class="tooltip tooltip-bottom-right" id="_emailWarning">Please enter a valid email address.</b>
+                            </label>
+                        </section>
+                    </fieldset>
+                    <footer id="password-reset-footer">
+                        <button type="submit" class="button">Submit</button>
+                    </footer>
+                    <footer><p style="text-align: center;"><a href="/">Home Page</a></p></footer>
+                </form>
+            </div>
+        </div>
+        <div class="modal" id="myModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="loading_modal"></div>
+        <div id="footer">
+            <div id="footer-text">
+                Developer:&nbsp;<a href="https://github.com/chainreaction9">Shubhamoy&nbsp;&lt;github.com/chainreaction9&gt;</a>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js" data-main="{{url_for('static', filename='scripts/js/recovery')}}"></script>
+    </body>
+</html>

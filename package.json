@@ -1,0 +1,21 @@
+{
+  "name": "chain-reaction-game",
+  "version": "1.0.0",
+  "author": "",
+  "module": "AMD",
+  "scripts": {
+    "dev": "npm install && pip install -r requirements.txt",
+    "start": "tsc && python runserver.py"
+  },
+  "license": "MIT",
+  "description": "A bundle containing all resources pertaining to the Chain Reaction game.",
+  "devDependencies": {
+    "typescript": "4.7"
+  },
+  "dependencies": {
+    "gl-matrix": "^3.4.3",
+    "jquery": "^3.6.4",
+    "pusher-js": "^8.0.1",
+    "webgl-obj-loader": "^2.0.8"
+  }
+}

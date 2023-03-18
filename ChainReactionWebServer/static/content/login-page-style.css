@@ -1,0 +1,245 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-image: url("chainreaction.jpg");
+}
+fancy-scrollbar {
+    overflow-x: scroll;
+	overflow-y: scroll;
+    scrollbar-color: #7a7f9e transparent;
+    /* thumb and track color */
+    scrollbar-width: thin;
+}
+.fancy-scrollbar-y {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-color: #7a7f9e transparent;
+    /* thumb and track color */
+    scrollbar-width: thin;
+}
+.fancy-scrollbar-x {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-color: #7a7f9e transparent;
+    /* thumb and track color */
+    scrollbar-width: thin;
+}
+.fancy-scrollbar::-webkit-scrollbar, .fancy-scrollbar-x::-webkit-scrollbar, .fancy-scrollbar-y::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+.fancy-scrollbar::-webkit-scrollbar-thumb, .fancy-scrollbar-x::-webkit-scrollbar-thumb, .fancy-scrollbar-y::-webkit-scrollbar-thumb {
+    background: #7a7f9e;
+    border-radius: 15px;
+    border: 1px solid #bfbaba;
+}
+.fancy-scrollbar::-webkit-scrollbar-thumb:hover, .fancy-scrollbar-x::-webkit-scrollbar-thumb:hover, .fancy-scrollbar-y::-webkit-scrollbar-thumb:hover {
+    background: #6a6f8e;
+}
+.fancy-scrollbar::-webkit-scrollbar-track, .fancy-scrollbar-x::-webkit-scrollbar-track, .fancy-scrollbar-y::-webkit-scrollbar-track {
+    background: transparent;
+}
+div.custom_body{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: calc(100% - 20px);
+    height: -moz-calc(100% - 20px);
+    height: -webkit-calc(100% - 20px);
+    font-size: 25px;
+    line-height: 22px;
+    overflow: auto;
+}
+.body-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-width: 390px;
+}
+.lg-container {
+    width: 40%;
+    min-width: 390px;
+    margin: 50px auto;
+    padding: 20px 25px;
+    border: 1px solid #f4f4f4;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 20px 1px #8138e9;
+    -moz-box-shadow: 0px 0px 20px 1px #8138e9;
+    box-shadow: 0px 0px 20px 1px #8138e9;
+    background: rgba(100,150,255,0.6);
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(218,245,255,1)), to(rgba(218,245,255,1)));
+    background: -webkit-linear-gradient(top, rgba(218,245,255,1),#ffffff,rgba(218,245,255,1));
+    background: -moz-linear-gradient(top, rgba(218,245,255,1),#ffffff,rgba(218,245,255,1));
+    background: -o-linear-gradient(top, rgba(218,245,255,1),#ffffff,rgba(218,245,255,1));
+}
+.lg-container h1 {
+    font-size: 40px;
+    text-align: center;
+}
+button.myBtn{
+    position: relative;
+    background-color: #428bca;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 6px 12px;
+    box-sizing:border-box;
+    border-radius: 3px;
+    font-family: sans-serif;
+    font-size: 0.65em;
+}
+button.myBtn::after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.7s
+}
+button.myBtn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+button.myBtn:hover{
+    transition: 0s;
+    background-color: #4873ad;
+}
+button.myBtn[disabled]{
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: .65;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+#welcome-header {
+    font-family: Algerian;
+    font-size: 1.35em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: 20px 0px;
+    padding: 10px 0px;
+}
+#login-form-header {
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    background-color: rgba(248,248,248,.9);
+    font-size: 0.65em;
+    line-height: 1.2em;
+    font-family: 'Raleway';
+    font-weight: bold;
+    color: darkblue;
+}
+
+#forgot_pass{
+    font-weight: bold;
+    padding: 10px;
+    font-family: Raleway;
+    font-size: 0.65em;
+    line-height: 1.1em;
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    background-color: rgba(248,248,248,.9);
+    color: rgb(60%, 0%, 0%);
+}
+.form-group label {
+    font-size: 0.6em;
+    line-height: 1.15em;
+    font-family: 'Raleway';
+    color: rgb(0%, 0%, 20%);
+    font-weight: bold;
+}
+#footer {
+	background-color: transparent;
+	height: 20px;
+	width: 100%;
+	min-width: 800px;
+	padding: 0px;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	align-items: center;
+	-webkit-align-items: center;
+	-ms-flex-align: end;
+	flex-direction: row;
+	-ms-flex-direction: row;
+	justify-content: flex-end;
+	-ms-flex-pack: end;
+	-webkit-flex-pack: end;
+	position: absolute;
+    bottom: 0;
+    right: 0;
+	z-index: 100;
+	box-shadow: rgb(0 0 0) -5px -5px 18px 7px;
+}
+#footer-text {
+	background-color: #0f2ae1;
+	padding: 0px 5px 0px 5px;
+	color: rgba(255,255,255,0.7);
+	text-align: right;
+    font-family: Raleway;
+	font-weight: bold;
+	font-size: 9pt;
+	height: 100%;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	align-items: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	flex-direction: row;
+	-ms-flex-direction: row;
+	justify-content: center;
+	-ms-flex-pack: center;
+	-webkit-flex-pack: center;
+	position: sticky;
+	right: 0;
+}
+#footer-text a{
+	color: rgba(255,255,255,0.7);
+	text-decoration: none;
+}
+
+@media only screen and (max-device-width: 600px) {
+    div.footer {
+        min-width: 1100px !important;
+    }
+    .lg-container {
+        width: 85%;
+        margin: 25px auto;
+        padding: 10px 10px;
+        min-width: 300px;
+    }
+    .body-container{
+        min-width: 300px;
+    }
+    #welcome-header {
+        font-size: 1em;
+        padding: 5px 10px;
+        margin: 10px 0px;
+    }
+    .form-group label {
+        font-size: 0.55em;
+        line-height: 1em;
+    }
+    #forgot_pass{
+        font-size: 0.57em;
+        line-height: 1.15em;
+    }
+}
