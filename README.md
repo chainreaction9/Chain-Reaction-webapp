@@ -44,3 +44,8 @@ After successful compilation of the typescript source files with the command
 npm run-script build
 ```
 the webserver can be run with the command `npm run-script start`.
+
+## Future ideas
+- Add chat feature among online players with the Pusher API.
+- Add options to play with AI bot.
+Please fork this project and make a pull request if you wish to contribute.
