@@ -1,11 +1,27 @@
 {
   "name": "chain-reaction-game",
   "version": "1.0.0",
-  "author": "",
+  "author": "Shubhamoy Nandan",
   "module": "AMD",
   "scripts": {
     "dev": "npm install && pip install -r requirements.txt",
-    "start": "tsc && python runserver.py"
+    "pydep": "pip install -r requirements.txt",
+    "build": "tsc -p .",
+    "watch": "tsc -p . --watch",
+    "start": "python runserver.py"
+  },
+  "keywords": [
+    "chain-reaction",
+    "webapp",
+    "github"
+  ],
+  "homepage": "https://github.com/chainreaction9/Chain-Reaction-webapp",
+  "bugs": {
+    "url": "https://github.com/chainreaction9/Chain-Reaction-webapp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chainreaction9/Chain-Reaction-webapp.git"
   },
   "license": "MIT",
   "description": "A bundle containing all resources pertaining to the Chain Reaction game.",

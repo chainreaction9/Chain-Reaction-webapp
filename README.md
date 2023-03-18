@@ -1,9 +1,10 @@
-Chain Reaction Cpp
+Chain Reaction Webapp
 ==================
 
-This open source MIT-licensed project is a cross-platform implementation of the android game [Chain Reaction](https://brilliant.org/wiki/chain-reaction-game/) in **C++**. The project makes heavy usage of the GUI library [wxWidgets](https://www.wxwidgets.org/) and combines it with the [OpenGL](https://www.opengl.org/) API to render 3D graphics. It is designed in such a way that the application has the potential to simulate any other graphics-based game.
+This is an open source [web application](https://chainserver.pythonanywhere.com) designed for playing the android game [Chain Reaction](https://brilliant.org/wiki/chain-reaction-game/) on web browsers. The project includes both the frontend and the backend implementation of the webapp. For the frontend development, typescript language and [WebGL](https://www.khronos.org/webgl/) API are used to create a client-side javascript module containing the helper functions of the game. For the backend, a Flask webserver is designed in python which enables players to play the game worldwide after [signing in](https://chainserver.pythonanywhere.com/chainreaction-online/login) with a free account! The app makes use of the [Pusher](https://pusher.com/) library for communicating with the online players. The user data is stored in a [MySQL](https://www.mysql.com/) database and mail functionality is available.
 
-![Application image](/chain-reaction.png)
+![Webapp image](/chain-reaction-online.png)
+
 ### About the Chain Reaction game.
 _________________________________
 This is a strategy based board game between two or more players. Each player gets a turn to occupy board-cells by either capturing an empty cell or by invading cells occupied by other players. The goal of the game is to eliminate all other players by capturing their cells. 
@@ -12,32 +13,34 @@ An invasion is caused by filling an already occupied cell beyond its critical ma
 
 Source building
 ---------------
-The project can be built with [CMake](https://cmake.org/) (version >= 3.20). In order for the build to be successful the following dependencies must be available in the dev environment.
-### Dependency
-1. [wxWidgets](https://www.wxwidgets.org/)
-2. [GLEW](https://glew.sourceforge.net/) or [glew-cmake](https://github.com/Perlmint/glew-cmake)
-3. [OpenGL Mathematics (GLM)](https://glm.g-truc.net/0.9.9/)
-4. [OpenAL-Soft](https://github.com/kcat/openal-soft)
+The project can be built with a typescript compiler (version >= 4.7) and require Python (version >= 3.0) to run the Flask webserver. In order for the typescript compilation to be successful the following dependencies must be available in the dev environment.
+### Frontend dependency
+1. [glMatrix](https://glmatrix.net/)
+2. [jQuery](https://jquery.com/)
+3. [pusher-js](https://github.com/pusher/pusher-js/)
+4. [webgl-obj-loader](https://www.npmjs.com/package/webgl-obj-loader)
 
-The four cmake options ```WXWIDGETS_AUTO_DOWNLOAD```, ```GLM_AUTO_DOWNLOAD```, ```GLEW_AUTO_DOWNLOAD```, ```OPENAL_AUTO_DOWNLOAD``` defined in [DefaultOptions.cmake](/DefaultOptions.cmake) are set by default, so that if the dependencies are not available, they will automatically be downloaded with a ``` FetchContent_MakeAvailable``` call during the configuration time and be built from scratch. One can configure the build with the follwing cmake commands from the project root directory:
-
-- **Debug** build: 
-
+The frontend dependencies are listed in `package.json` and can be installed by running the following command from the project root directory:
 ```bash
-cmake -S . -B destination_folder -DCMAKE_BUILD_TYPE=Debug
+npm install .
 ```
+### Backend dependency
+These python modules are needed for the Flask webserver to run:
+1. Flask>=2.2
+2. Flask-Session>=0.4
+3. Flask-Login>=0.5
+4. Flask-Mail>=0.8
+5. Flask-MySQL>=1.0
+6. Flask-Bcrypt>=1.0
+7. pusher>=2.1
+8. validate-email
 
-- **Release** build : 
-
+The backend dependencies can be installed by running either the command `pip install -r requirements.txt`, or `npm run-script pydep` from the project root directory. To install both frontend and backend dependencies, run the following command from project root directory:
 ```bash
-cmake -S . -B destination_folder -DCMAKE_BUILD_TYPE=Release
+npm run-script dev
 ```
-
-Assuming the configuration went well, you can build the binary executable by running the command 
-
+After successful compilation of the typescript source files with the command
 ```bash
-cmake --build destination_folder
+npm run-script build
 ```
-
-### Resource files
-The project depends on the resource files (*.obj, shaders, *.wav, *mtl, etc.) in the [resource](/Chain-Reaction-cpp/src/Resources/resource) directory. On Windows platform the zip resource [resource.zip](/Chain-Reaction-cpp/src/Resources/resource.zip) containing these files will automatically be embedded into the binary executable with the compilation of the source file [Chain-Reaction.rc](/Chain-Reaction-cpp/src/Chain-Reaction.rc). On other platforms the user will need to manually specify the zip file at the start of the application.
+the webserver can be run with the command `npm run-script start`.
