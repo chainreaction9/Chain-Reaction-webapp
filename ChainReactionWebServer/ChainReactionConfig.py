@@ -6,7 +6,7 @@ import uuid
 
 # email address for the webserver. This will be used to send email to users for account activation, password recovery, etc.
 REMOTE_SERVER_EMAIL = ''
-#server address for the mail
+#server address for the mail. In case of gmail smtp server, e.g., smtp.gmail.com
 REMOTE_SERVER_EMAIL_PROVIDER = ''
 #port for accessing the mail server. In case of smtp server, it is typically 465.
 REMOTE_SERVER_EMAIL_PORT = 465
@@ -31,7 +31,7 @@ APPLICATION_POST_PASSWORD = uuid.uuid4().hex
 #********************************* Pusher Client Settings Setup ***************************************************
 #********************************* Requires a pusher-client library of version higher than 8.0.0 on the client side ***************************
 #********************************* This settings are used on the client side pusher app with which an online user communicates. ***************
-#********************************* An online user can download this settings after signing in and by sending an HTML POST request to the endpoint '/pusher/application-settings'.
+#********************************* An online user can download these settings after signing in and by sending an HTML POST request to the endpoint '/pusher/application-settings'.
 #********************************* Therefore be careful before putting sensitive information ***********************
 PUSHER_SETTINGS = {}
 PUSHER_SETTINGS['app_key'] = '' # your pusher application key.

@@ -68,7 +68,7 @@ def generateSecureKey(username: str, salt: str, passwordForEncryption: str):
     output={'publicKey': publicKey, 'privateKey': privateKey, 'userKey': encryptedUsername}
     return output
 
-def hashCompare(hashA: str,hashB: str)->bool:
+def hashCompare(hashA, hashB)->bool:
     if type(hashA) != type(hashB): return False
     if (len(hashA)!=len(hashB)): return False
     if type(hashA) == str:
@@ -630,7 +630,7 @@ def sendPasswordResetEmail(email, username, passwordResetKey, passwordResetLink,
 #***************************************************************************************************************
 #******************************************* Pusher client related routes ***************************************
 #***************************************************************************************************************
-@app.route('/pusher/application-settings', methods = ['GET','POST'])
+@app.route('/pusher/application-settings', methods = ['POST'])
 @login_required
 @update_session
 def getPusherSettings():
@@ -1056,7 +1056,6 @@ def updateChannelDatabase(channelName: str, numberOfPlayers: int, cursor: any = 
 
 def invalidateSession(sessionID):
     token = urlsafe_b64encode(sessionID.encode('UTF-8')).decode('UTF-8')
-    #print("Channel name while reseting", channel)
     channel = f"private-{token}"
     isUserSubscribed = pusher_client.channel_info(channel,['occupied'])['occupied']
     if isUserSubscribed:
